@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	}
  	choice = atoi(argv[1]); 
 	if (choice != 0 && choice != 1) {
-		printf("Choice must be 0 or 1\n");
+		printf("Choice must be 0 or 1 only!!!\n");
 		exit(EXIT_FAILURE);
 	}
 	TEEC_Result res;
