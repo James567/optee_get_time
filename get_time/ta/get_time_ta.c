@@ -97,7 +97,7 @@ void TA_CloseSessionEntryPoint(void __maybe_unused *sess_ctx)
 static TEE_Result get_system_time(uint32_t param_types,
 	TEE_Param params[4])
 {
-	Tee_time time;
+	TEE_Time time;
 	uint32_t exp_param_types = TEE_PARAM_TYPES(TEE_PARAM_TYPE_VALUE_INOUT,
 						   TEE_PARAM_TYPE_NONE,
 						   TEE_PARAM_TYPE_NONE,
@@ -109,7 +109,7 @@ static TEE_Result get_system_time(uint32_t param_types,
 		return TEE_ERROR_BAD_PARAMETERS;
 
 
-	TEE_GetSystemTime(time);
+	TEE_GetSystemTime(&time);
 	params[0].value.a = time.seconds;
 	params[0].value.b = time.millis;
 	
@@ -121,7 +121,7 @@ static TEE_Result get_system_time(uint32_t param_types,
 static TEE_Result get_ree_time(uint32_t param_types,
 	TEE_Param params[4])
 {
-	Tee_time time;
+	TEE_Time time;
 	uint32_t exp_param_types = TEE_PARAM_TYPES(TEE_PARAM_TYPE_VALUE_INOUT,
 						   TEE_PARAM_TYPE_NONE,
 						   TEE_PARAM_TYPE_NONE,
@@ -132,7 +132,7 @@ static TEE_Result get_ree_time(uint32_t param_types,
 	if (param_types != exp_param_types)
 		return TEE_ERROR_BAD_PARAMETERS;
 
-	TEE_GetREETime(time);
+	TEE_GetREETime(&time);
 	params[0].value.a = time.seconds;
 	params[0].value.b = time.millis;
 	

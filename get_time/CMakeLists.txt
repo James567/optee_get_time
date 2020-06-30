@@ -1,6 +1,6 @@
 project (optee_get_time C)
 
-set (SRC host/main.c)
+set (SRC ca/main.c)
 
 add_executable (${PROJECT_NAME} ${SRC})
 

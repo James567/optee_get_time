@@ -14,7 +14,7 @@
 int main(int argc, char *argv[])
 {
 	int choice;
-	if (argc < 3) {
+	if (argc < 2) {
 		printf("Usage: %s get_time 0|1 (0 -> system time | 1 -> REE time) \n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
@@ -70,8 +70,9 @@ int main(int argc, char *argv[])
 		if (res != TEEC_SUCCESS)
 			errx(1, "TEEC_InvokeCommand failed with code 0x%x origin 0x%x",
 				res, err_origin);
-		printf("The REE time is %d\n", op.params[0].value.a);
+		printf("The REE time in second : %d\n", op.params[0].value.a);
 		printf("The REE time in millis : %d\n", op.params[0].value.b);
+		break;
 	case 0 :
 		res = TEEC_InvokeCommand(&sess, TA_CMD_GET_SYSTEM_TIME, &op,
 					&err_origin);
@@ -80,7 +81,9 @@ int main(int argc, char *argv[])
 				res, err_origin);
 	    printf("The system time in second : %d\n", op.params[0].value.a);
 		printf("The system time in millis : %d\n", op.params[0].value.b);
-	
+	    break;
+	default:
+	    break;
 	
 	}
 	/*
