@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
 		if (res != TEEC_SUCCESS)
 			errx(1, "TEEC_InvokeCommand failed with code 0x%x origin 0x%x",
 				res, err_origin);
-	    printf("The system time in second : %d\n", op.params[0].value.a);
+		printf("The system time in second : %d\n", op.params[0].value.a);
 		printf("The system time in millis : %d\n", op.params[0].value.b);
 	    break;
 	default:
