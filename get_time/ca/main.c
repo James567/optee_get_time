@@ -81,9 +81,9 @@ int main(int argc, char *argv[])
 				res, err_origin);
 		printf("The system time in second : %d\n", op.params[0].value.a);
 		printf("The system time in millis : %d\n", op.params[0].value.b);
-	    break;
+		break;
 	default:
-	    break;
+		break;
 	
 	}
 	/*
